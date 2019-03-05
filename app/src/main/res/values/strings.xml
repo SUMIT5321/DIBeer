@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">DIBear</string>
+
+    <string name="abv_val">ABV: %s</string>
+    <string name="first_brewed">First Brewed</string>
+    <string name="abv">ABV</string>
+    <string name="description">Description</string>
+    <string name="food_pairing">Food Pairing</string>
+    <string name="brewer_tips">Brewer Tips</string>
+    <string name="contributed_by">Contributed By</string>
+    <string name="top_beers">Top Beers</string>
+    <string name="favorite_beers">Favorite Beers</string>
+    <string name="remove_from_fab">Remove from Fab</string>
+    <string name="add_to_fab">Add to Fab</string>
+    <string name="favorite_brand">Favorite Brand</string>
+    <string name="welcome_to_beer_app">Welcome to \nBEER APP</string>
+</resources>

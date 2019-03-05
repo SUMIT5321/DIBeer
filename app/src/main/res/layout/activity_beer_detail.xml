@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.beerDetail.BeerDetailActivity">
+
+    <ProgressBar
+            android:id="@+id/details_pb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+    <TextView
+            android:id="@+id/details_tv_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/roboto_medium"
+            android:layout_gravity="center"
+            tools:text="Error: No Internet connection"/>
+
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/details_cl_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp">
+
+            <ImageView
+                    android:id="@+id/details_iv_beer"
+                    android:layout_width="0dp"
+                    android:layout_height="250dp"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintDimensionRatio="W,1:2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="8dp"
+                    tools:src="@drawable/sample_beer_image"
+                    tools:ignore="contentDescription"/>
+
+            <TextView
+                    android:id="@+id/details_tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/roboto_medium"
+                    app:layout_constraintTop_toBottomOf="@id/details_iv_beer"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    tools:text="Misspent Youth"
+            />
+
+            <TextView
+                    android:id="@+id/details_tv_tag_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/dark_grey"
+                    android:fontFamily="@font/roboto"
+                    app:layout_constraintTop_toBottomOf="@id/details_tv_name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    tools:text="Milk &amp; Honey Scotch Ale."
+            />
+
+            <TextView
+                    android:id="@+id/details_tv_contributed_by_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:text="@string/contributed_by"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    app:layout_constraintTop_toBottomOf="@id/details_tv_tag_line"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+            />
+
+            <TextView
+                    android:id="@+id/details_tv_contributed_by_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/dark_grey"
+                    android:fontFamily="@font/roboto"
+                    app:layout_constraintTop_toBottomOf="@id/details_tv_contributed_by_label"
+                    app:layout_constraintStart_toStartOf="@id/details_tv_contributed_by_label"
+                    app:layout_constraintEnd_toEndOf="@id/details_tv_contributed_by_label"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    tools:text="Sam Mason samjbmason"
+            />
+
+            <TextView
+                    android:id="@+id/details_tv_first_brewed_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:text="@string/first_brewed"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    app:layout_constraintTop_toBottomOf="@id/details_tv_contributed_by_value"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/details_tv_abv_label"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+            />
+
+            <TextView
+                    android:id="@+id/details_tv_abv_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:text="@string/abv"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    app:layout_constraintTop_toTopOf="@id/details_tv_first_brewed_label"
+                    app:layout_constraintStart_toEndOf="@id/details_tv_first_brewed_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+            />
+
+            <TextView
+                    android:id="@+id/details_tv_first_brewed_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/dark_grey"
+                    android:fontFamily="@font/roboto"
+                    app:layout_constraintTop_toBottomOf="@id/details_tv_first_brewed_label"
+                    app:layout_constraintStart_toStartOf="@id/details_tv_first_brewed_label"
+                    app:layout_constraintEnd_toEndOf="@id/details_tv_first_brewed_label"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    tools:text="04/2013"
+            />
+
+            <TextView
+                    android:id="@+id/details_tv_abv_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/dark_grey"
+                    android:fontFamily="@font/roboto"
+                    app:layout_constraintTop_toBottomOf="@id/details_tv_abv_label"
+                    app:layout_constraintStart_toStartOf="@id/details_tv_abv_label"
+                    app:layout_constraintEnd_toEndOf="@id/details_tv_abv_label"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    tools:text="7.3"
+            />
+
+            <TextView
+                    android:id="@+id/details_tv_description_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:text="@string/description"
+                    android:fontFamily="@font/roboto_medium"
+                    app:layout_constraintTop_toBottomOf="@id/details_tv_first_brewed_value"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp"
+            />
+
+            <TextView
+                    android:id="@+id/details_tv_description_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/dark_grey"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    app:layout_constraintTop_toBottomOf="@id/details_tv_description_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    tools:text="The brainchild of our small batch brewer, George Woods. A dangerously drinkable milk sugar- infused Scotch Ale."
+            />
+
+            <TextView
+                    android:id="@+id/details_tv_food_pairing_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:text="@string/food_pairing"
+                    android:fontFamily="@font/roboto_medium"
+                    app:layout_constraintTop_toBottomOf="@id/details_tv_description_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp"
+            />
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/details_tv_food_pairing_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/details_tv_food_pairing_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"/>
+
+            <TextView
+                    android:id="@+id/details_tv_brewer_tips_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:text="@string/brewer_tips"
+                    android:fontFamily="@font/roboto_medium"
+                    app:layout_constraintTop_toBottomOf="@id/details_tv_food_pairing_list"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp"
+            />
+
+            <TextView
+                    android:id="@+id/details_tv_brewer_tips_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/dark_grey"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    app:layout_constraintTop_toBottomOf="@id/details_tv_brewer_tips_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    tools:text="Lots of malt in this one. Mash-in in stages, and spread the pale ale malt throughout the mash to provide stability. If the mash starts to sink, stop, wait a few minutes while mixing, then start again."
+            />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+            android:id="@+id/remove_fab_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_to_fab"
+            android:textColor="@color/colorAccent"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:padding="8dp"
+            android:elevation="8dp"
+    />
+
+    <TextView
+            android:id="@+id/fab_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/favorite_brand"
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:gravity="center"
+            android:layout_gravity="top"
+            android:padding="16dp"
+            android:background="@color/colorAccent"
+            android:alpha=".7"
+            android:elevation="8dp"
+    />
+</FrameLayout>

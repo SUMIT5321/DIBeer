@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.vinsol.dibear"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation deps.kotlin.stdlib
+    implementation deps.support.app_compat
+    implementation deps.support.kotlin_extension
+    implementation deps.support.constraint_layout
+    implementation deps.support.recyclerview
+    implementation 'com.google.android.material:material:1.1.0-alpha03'
+
+    // AnKo
+    implementation deps.anko
+    implementation deps.anko_commons
+
+    // Dagger 2
+    implementation deps.dagger.runtime
+    kapt deps.dagger.compiler
+
+    // room
+    implementation deps.room.runtime
+    kapt deps.room.compiler
+
+    // retrofit
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.gson
+    implementation deps.retrofit.adapter_rxjava
+    implementation deps.retrofit.mock
+    implementation deps.okhttp.logging_interceptor
+
+    // rx
+    implementation deps.rx.java
+    implementation deps.rx.android
+    implementation deps.rx.bindings
+
+    // Timber for logging
+    implementation deps.timber
+
+    // picasso
+    implementation deps.picasso
+
+    // Mockito for testing
+    testImplementation deps.mockito.core
+    testImplementation deps.mockito.kotlin
+    testImplementation deps.junit
+
+    testImplementation deps.junit
+    androidTestImplementation deps.atsl.rules
+    androidTestImplementation deps.espresso.core
+}

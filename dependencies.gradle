@@ -1,0 +1,170 @@
+/**
+ * Shared file between builds so that they can all use the same dependencies and
+ * maven repositories
+ */
+
+ext.deps = [:]
+
+def versions = [:]
+
+versions.gradle = "4.10.2"
+versions.android_gradle_plugin = '3.3.0'
+versions.min_sdk = 24
+versions.target_sdk = 28
+versions.compile_sdk = 28
+versions.support = "1.1.0-alpha02"
+versions.multidex = "2.0.0"
+versions.lifecycle = "2.0.0-rc01"
+versions.constraint_layout = "1.1.3"
+
+versions.anko = "0.10.3"
+versions.anko_commons = "0.10.5"
+versions.atsl_runner = "1.1.2-alpha01"
+versions.crashlytics = "2.6.3"
+versions.dagger2 = "2.13"
+versions.espresso = "3.1.0"
+versions.fabric = "1.24.2"
+versions.junit = "4.12"
+versions.kotlin = "1.3.11"
+versions.leakcanary = "1.6.2"
+versions.mockito = "2.8.9"
+versions.mockito_all = "1.10.19"
+versions.mockito_kotlin = "1.6.0"
+versions.multidex = "1.0.2"
+versions.okhttp= "3.9.0"
+versions.picasso="2.5.2"
+versions.retrofit = "2.4.0"
+versions.room = "2.0.0-rc01"
+versions.rx_android = "2.0.1"
+versions.rx_bindings = "2.0.0"
+versions.rx_idler = "0.9.0"
+versions.rx_java = "2.1.14"
+versions.timber = "4.7.0"
+versions.ui_automator = "2.1.3"
+
+
+// map, where we will be storing all the dependency strings
+def deps = [:]
+
+//----------------------------
+// support
+
+def support = [:]
+support.annotations = "androidx.annotation:annotation:$versions.support"
+support.app_compat = "androidx.appcompat:appcompat:$versions.support"
+support.cardview = "androidx.cardview:cardview:$versions.support"
+support.compat = "androidx.core:core:$versions.support"
+support.design = "com.google.android.material:material:$versions.support"
+support.multidex = "androidx.multidex:multidex:$versions.multidex"
+support.recyclerview = "androidx.recyclerview:recyclerview:$versions.support"
+support.v4 = "androidx.legacy:legacy-support-v4:1.0.0:$versions.support"
+support.vector_drawable = "androidx.vectordrawable:vectordrawable:$versions.support"
+support.vector_drawable_animated = "androidx.vectordrawable:vectordrawable-animated:$versions.support"
+support.constraint_layout = "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
+support.kotlin_extension = "androidx.core:core-ktx:$versions.support"
+deps.support = support
+
+def room = [:]
+room.runtime = "androidx.room:room-runtime:$versions.room"
+room.compiler = "androidx.room:room-compiler:$versions.room"
+deps.room = room
+
+//----------------------------
+// 3rd party
+
+def kotlin = [:]
+kotlin.allopen = "org.jetbrains.kotlin:kotlin-allopen:$versions.kotlin"
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+kotlin.test = "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin"
+kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+deps.kotlin = kotlin
+
+def dagger = [:]
+dagger.runtime = "com.google.dagger:dagger:$versions.dagger2"
+dagger.compiler = "com.google.dagger:dagger-compiler:$versions.dagger2"
+deps.dagger = dagger
+
+def leakcanary = [:]
+leakcanary.lib = "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary"
+leakcanary.no_op = "com.squareup.leakcanary:leakcanary-android-no-op:$versions.leakcanary"
+deps.leakcanary = leakcanary
+
+def lifecycle = [:]
+lifecycle.runtime = "androidx.lifecycle:lifecycle-runtime:$versions.lifecycle"
+lifecycle.extensions = "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
+lifecycle.java8 = "androidx.lifecycle:lifecycle-common-java8:$versions.lifecycle"
+lifecycle.compiler = "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle"
+deps.lifecycle = lifecycle
+
+def okhttp = [:]
+okhttp.core = "com.squareup.okhttp3:okhttp:$versions.okhttp"
+okhttp.logging_interceptor = "com.squareup.okhttp3:logging-interceptor:$versions.okhttp"
+okhttp.mock_web_server = "com.squareup.okhttp3:mockwebserver:$versions.okhttp"
+deps.okhttp = okhttp
+
+def rx = [:]
+rx.java = "io.reactivex.rxjava2:rxjava:$versions.rx_java"
+rx.android = "io.reactivex.rxjava2:rxandroid:$versions.rx_android"
+rx.bindings = "com.jakewharton.rxbinding2:rxbinding:$versions.rx_bindings"
+rx.idler = "com.squareup.rx.idler:rx2-idler:$versions.rx_idler"
+deps.rx = rx
+
+def retrofit = [:]
+retrofit.runtime = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+retrofit.gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+retrofit.mock = "com.squareup.retrofit2:retrofit-mock:$versions.retrofit"
+retrofit.adapter_rxjava = "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
+deps.retrofit = retrofit
+
+//----------------------------
+// Testing
+
+def espresso = [:]
+espresso.core = "androidx.test.espresso:espresso-core:$versions.espresso"
+deps.espresso = espresso
+
+def atsl = [:]
+atsl.runner = "androidx.test:runner:$versions.atsl_runner"
+atsl.rules = "androidx.test:rules:$versions.atsl_runner"
+deps.atsl = atsl
+
+def mockito = [:]
+mockito.core = "org.mockito:mockito-core:$versions.mockito"
+mockito.android = "org.mockito:mockito-android:$versions.mockito"
+mockito.all = "org.mockito:mockito-all:$versions.mockito_all"
+mockito.kotlin = "com.nhaarman:mockito-kotlin:$versions.mockito_kotlin"
+deps.mockito = mockito
+
+deps.junit = "junit:junit:$versions.junit"
+
+//----------------------------
+// Other
+
+deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
+deps.anko = "org.jetbrains.anko:anko:$versions.anko"
+deps.anko_commons = "org.jetbrains.anko:anko-commons:$versions.anko_commons"
+deps.crashlytics = "com.crashlytics.sdk.android:crashlytics:${versions.crashlytics}@aar"
+deps.fabric = "io.fabric.tools:gradle:$versions.fabric"
+deps.timber = "com.jakewharton.timber:timber:$versions.timber"
+deps.picasso = "com.squareup.picasso:picasso:$versions.picasso"
+
+// add deps to extra properties
+ext.deps = deps
+
+//----------------------------
+// Build versions
+
+def build_versions = [:]
+build_versions.min_sdk = versions.min_sdk
+build_versions.target_sdk = versions.target_sdk
+build_versions.compile_sdk = versions.compile_sdk
+build_versions.gradle = versions.gradle
+ext.build_versions = build_versions
+
+def static addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.jcenter()
+    handler.maven { url "https://jitpack.io" }
+    handler.maven { url 'https://github.com/WickeDev/stetho-realm/raw/master/maven-repo' }
+}
+ext.addRepos = this.&addRepos
